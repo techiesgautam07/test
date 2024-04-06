@@ -1,0 +1,122 @@
+import React, { useEffect, useState } from "react";
+import { ScrollView, StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+
+const Profile = () => {
+  const [currentUser, setCurrentUser] = useState(undefined);
+  const navigation = useNavigation();
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.headerText}> Profile</Text>
+      </View>
+
+      <ScrollView contentContainerStyle={styles.scrollContent}>
+        <View style={styles.profileCard}>
+          <Image
+            source={{
+              uri: "https://cdn-icons-png.flaticon.com/512/146/146031.png?w=740&t=st=1691586385~exp=1691586985~hmac=1e0cfd4272d9c9ba89a66b7a992aa91b63c2eb19e878c39a6247dfb05f46bcb4",
+            }}
+            style={styles.profileImage}
+          />
+          {/* <Text style={styles.profileUsername}>{currentUser}</Text> */}
+          <Text style={styles.profileUsername}>sujal</Text>
+        </View>
+
+     
+
+        <TouchableOpacity style={styles.card} onPress={() => navigation.navigate("")}>
+          <Text style={styles.cardTitle}>Chats</Text>
+        </TouchableOpacity>
+
+
+        <TouchableOpacity style={styles.card} onPress={() => navigation.navigate("")}>
+          <Text style={styles.cardTitle}>RatingsAndReviews</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.logoutButton} >
+          <Text style={styles.logoutText}>Log Out</Text>
+        </TouchableOpacity>
+      </ScrollView>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#dedede",
+  },
+  header: {
+    backgroundColor: "#0174BE",
+    padding: 16,
+  },
+  headerText: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#fff",
+  },
+  scrollContent: {
+    flexGrow: 1,
+    paddingVertical: 20,
+    alignItems: "center",
+  },
+  profileCard: {
+    alignItems: "center",
+  },
+  profileImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    marginBottom: 20,
+  },
+  profileUsername: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#333",
+  },
+  card: {
+    backgroundColor: "#fff",
+    borderRadius: 8,
+    elevation: 4,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    marginVertical: 12,
+    marginHorizontal: 30,
+    width: 300,
+    height: 60,
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  cardTitle: {
+    fontSize: 18,
+    marginLeft: 10,
+    color: "#333",
+  },
+  logoutButton: {
+    backgroundColor: "#0174BE",
+    borderRadius: 8,
+    elevation: 4,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    marginVertical: 12,
+    marginHorizontal: 30,
+    width: 300,
+    height: 60,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  logoutText: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#fff",
+  },
+});
+
+
+export default Profile;
