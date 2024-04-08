@@ -4,8 +4,8 @@ import Gallery from './src/screen/SubScreens/Gallery'
 
 const App = () => {
   return (
-    // <AppNavigator />
-    <Gallery />
+    <AppNavigator />
+    // <Gallery />
   )
 }
 
